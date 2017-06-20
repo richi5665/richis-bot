@@ -1,13 +1,15 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+
 client.login(process.env.TOKEN);
 
-client.on("ready", () => {
-console.log("I am ready!");
+client.on('ready', () => {
+console.log(`Ready to server in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
+client.user.setGame('2.0');
 });
 
-client.on("message", (message)=> {
-if (message.content.startsWith("ping")) {
-message.channel.send("pong!");
-}
-});
+client.on('message', (message)=> {
+if (message.content.startsWith('!ping')) {
+ 
+message.channel.send('pong took 100m/s'); 
+}});
